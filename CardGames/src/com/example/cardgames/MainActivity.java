@@ -25,10 +25,12 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//the arguments here are used to identify this app with the Parse service
 		Parse.initialize(this, "rcoJm1GGgUI9wgN19GDGBk8qgbsHD3buV3MiquBp", "lUYmJQ1pQS3MrOMTrmycEKS8jRCg0Vzd45HYxLJz"); 
+		
 		User user = new User("e456","IamHere","skater85234@hotmail.com");
 		context = this;
-		//user.signUp();
+		//user.signUp(); method can be used to create a username and password on Parse
 	
 	}
 
