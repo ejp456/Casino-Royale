@@ -46,8 +46,8 @@
         android:id="@+id/stayButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignRight="@+id/button1"
+        android:layout_alignLeft="@+id/increaseBet"
+        android:layout_alignRight="@+id/increaseBet"
         android:layout_below="@+id/password"
         android:layout_marginTop="42dp"
         android:background="@drawable/button"
@@ -55,7 +55,7 @@
         android:text="Login" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/increaseBet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stayButton"

@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/userInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$$ = 100"
@@ -33,27 +33,37 @@
 
         <Button
             android:id="@+id/hitButton"
-            android:layout_width="67dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dip"
             android:layout_marginRight="20dip"
-            android:layout_weight="0.14"
-            android:text="Hit" />
+            android:text="Hit"
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/stayButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stand" />
+            android:text="Stand"
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/dealButton"
-            android:layout_width="67dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dip"
             android:layout_marginRight="20dip"
-            android:layout_weight="0.02"
-            android:text="Deal" />
+            android:text="Deal"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/increaseBet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bet"
+            android:onClick="showBetDialog"
+            android:textSize="15dp" />
+
     </LinearLayout>
 
 </LinearLayout>
