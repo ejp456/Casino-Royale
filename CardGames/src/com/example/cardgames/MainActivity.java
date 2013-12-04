@@ -2,7 +2,7 @@ package com.example.cardgames;
 
 
 
-import com.parse.LogInCallback;
+import com.parse.LogInCallback; 
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -65,6 +65,11 @@ public class MainActivity extends Activity {
 			});
 		
 	}
+	public void signUp(View v){
+		Intent i = new Intent(MainActivity.this, User.class);
+	       startActivity(i);
+	}
+	
 	public void createUser(View v){
 		Intent i = new Intent(MainActivity.this, HighScoreActivity.class);
 	       startActivity(i);
