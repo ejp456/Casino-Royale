@@ -31,15 +31,36 @@
         android:inputType="textPassword" />
 
     <Button
+        android:id="@+id/increaseBet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button"
+        android:onClick="createUser"
+        android:text="High Scores" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/increaseBet"
+        android:layout_alignLeft="@+id/increaseBet"
+        android:layout_alignRight="@+id/increaseBet"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button"
+        android:text="Sign Up" />
+
+    <Button
         android:id="@+id/stayButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/increaseBet"
-        android:layout_alignRight="@+id/increaseBet"
-        android:layout_below="@+id/password"
-        android:layout_marginTop="42dp"
+        android:layout_above="@+id/signup"
+        android:layout_alignLeft="@+id/signup"
+        android:layout_alignRight="@+id/signup"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button"
-        android:onClick="login"
         android:text="Login" />
 
     <TextView
@@ -48,32 +69,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="56dp"
         android:text="Blackjack"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/sendLightColor"
         android:textSize="32sp" />
 
-    <Button
-        android:id="@+id/increaseBet"
+    <TextView
+        android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button"
-        android:onClick="createUser"
-        android:text="High Scores" />
-
-    <Button
-        android:id="@+id/goButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/stayButton"
-        android:layout_alignRight="@+id/increaseBet"
-        android:layout_below="@+id/stayButton"
-        android:layout_marginTop="26dp"
-        android:background="@drawable/button"
-        android:onClick="login"
-        android:text="Sign Up" />
+        android:text="Casino-Royale"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/sendLightColor"
+        android:textSize="32sp" />
 
 </RelativeLayout>
