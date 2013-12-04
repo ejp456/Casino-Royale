@@ -9,18 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="Blackjack"        
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/sendLightColor"
-        android:textSize="32sp" />
-
     <EditText
         android:id="@+id/username"
         android:layout_width="wrap_content"
@@ -54,15 +42,38 @@
         android:onClick="login"
         android:text="Login" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Blackjack"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/sendLightColor"
+        android:textSize="32sp" />
+
     <Button
         android:id="@+id/increaseBet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/stayButton"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
         android:background="@drawable/button"
         android:onClick="createUser"
         android:text="High Scores" />
+
+    <Button
+        android:id="@+id/goButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/stayButton"
+        android:layout_alignRight="@+id/increaseBet"
+        android:layout_below="@+id/stayButton"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/button"
+        android:onClick="login"
+        android:text="Sign Up" />
 
 </RelativeLayout>

@@ -1,9 +1,7 @@
 package com.example.cardgames;
 
 
-import com.gamefiles.BlackJackHand;
 import com.gamefiles.Card;
-import com.gamefiles.Card.FaceValue;
 import com.gamefiles.Deck;
 import com.gamefiles.Player;
 
@@ -11,9 +9,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -91,7 +87,7 @@ public class GameView extends View {
 			 for(int i=0;i<dealer.getHand().getCards().size();i++){
 				 Bitmap dealerCard = BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(loadCard(dealer.getHand().getCards().get(i)), "drawable", BlackJackActivity.PACKAGE_NAME));
 				 if(!dealer.getHand().getCards().get(i).isCardUp()){
-					 canvas.drawBitmap(dealerCard.createScaledBitmap(dealerCard, b.getWidth(), b.getHeight(), true), b.getWidth()/2,0,mBmpPaint);
+					 canvas.drawBitmap(Bitmap.createScaledBitmap(dealerCard, b.getWidth(), b.getHeight(), true), b.getWidth()/2,0,mBmpPaint);
 				 }else{
 					 canvas.drawBitmap(dealerCard, dealercards, 0, mBmpPaint); 
 				 }

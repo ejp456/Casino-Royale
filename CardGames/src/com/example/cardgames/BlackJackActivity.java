@@ -9,14 +9,10 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +55,7 @@ public class BlackJackActivity extends Activity {
 		text = (TextView)findViewById(R.id.textView1);
 		deal.setOnClickListener(new View.OnClickListener() {
 			
+			@Override
 			public void onClick(View v) {
 				if(currentBet<=BankAccount.getInstanceOf().getBalanace()){
 					hit.setEnabled(true);
@@ -79,6 +76,7 @@ public class BlackJackActivity extends Activity {
 		});
 		hit.setOnClickListener(new View.OnClickListener() {
 			
+			@Override
 			public void onClick(View v) {
 				mGameView.hitPressed(currentDeck);
 				text.setText("Player: "+mGameView.getPlayer().getValue());
@@ -95,6 +93,7 @@ public class BlackJackActivity extends Activity {
 		});
 		stand.setOnClickListener(new View.OnClickListener() {
 			
+			@Override
 			public void onClick(View v) {
 				endRound();
 			}

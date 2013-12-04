@@ -1,7 +1,6 @@
 package com.example.cardgames;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.app.ListActivity;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
@@ -14,7 +13,7 @@ public class HighScoreActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_high_score);
 		String[] test = {"Joelle  $2000","John  $1500","Etai  $1000"};
-		setListAdapter((ListAdapter) new ArrayAdapter<String>(this,R.layout.simplelist,test));
+		setListAdapter(new ArrayAdapter<String>(this,R.layout.simplelist,test));
 		 
 		 
 		 

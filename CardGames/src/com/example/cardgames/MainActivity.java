@@ -15,7 +15,6 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -35,7 +34,7 @@ public class MainActivity extends Activity {
 		
 		User user = new User("e456","IamHere","skater85234@hotmail.com");
 		context = this;
-		//user.signUp(); method can be used to create a username and password on Parse
+		user.signUp(); //method can be used to create a username and password on Parse
 	
 	}
 
@@ -47,7 +46,8 @@ public class MainActivity extends Activity {
 	}
 	public void login(View v){
 		ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
-			  @SuppressLint("ShowToast")
+			  @Override
+			@SuppressLint("ShowToast")
 			public void done(ParseUser user, ParseException e) {
 			    if (user != null) {
 			      // Hooray! The user is logged in.
@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 			      // Signup failed. Look at the ParseException to see what happened.
 			    	e.printStackTrace();
 			    	Log.d("reading: ", e.getMessage());
-			    	Toast.makeText(context, (CharSequence) e.getMessage(), Toast.LENGTH_LONG).show();;
+			    	Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();;
 			    }
 			  }
 			});

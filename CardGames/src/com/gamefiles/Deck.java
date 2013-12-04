@@ -2,9 +2,6 @@ package com.gamefiles;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
-import java.util.Random;
-
 import com.gamefiles.Card.FaceValue;
 import com.gamefiles.Card.Suit;
 

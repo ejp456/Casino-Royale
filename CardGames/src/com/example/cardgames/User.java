@@ -1,6 +1,5 @@
 package com.example.cardgames;
 
-import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -16,7 +15,8 @@ public class User {
 	}
 	public void signUp(){
 		pUser.signUpInBackground(new SignUpCallback() {
-			  public void done(ParseException e) {
+			  @Override
+			public void done(ParseException e) {
 				    if (e == null) {
 				      // Hooray! Let them use the app now.
 				    } else {
