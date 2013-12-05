@@ -22,4 +22,7 @@ public class BankAccount {
 	public void deposit(int mon){
 		money = money+mon;
 	}
+	public void setBalance(){
+		money=1000;
+	}
 }

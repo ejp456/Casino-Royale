@@ -48,7 +48,7 @@ public class BlackJackActivity extends Activity {
 		context=this;
 		user = ParseUser.getCurrentUser();
 		user.getUsername();
-		
+		BankAccount.getInstanceOf().setBalance();
 		userInfo.setText(user.getUsername()+"    "+"$"+BankAccount.getInstanceOf().getBalanace());
 		
 		mGameView = (GameView) findViewById(R.id.game_view);
