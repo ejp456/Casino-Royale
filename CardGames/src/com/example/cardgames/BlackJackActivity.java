@@ -9,19 +9,25 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class BlackJackActivity extends Activity {
+	final int WIN = 1;
+	final int LOSE = 2;
+	final int PUSH = 3;
     private GameView mGameView;
     private Button deal;
     private Button hit;
     private Button stand;
     private Button bet;
+    int backgroundColor=R.color.sendDarkColor;
     ParseUser user;
     int currentBet=5;
     private TextView userInfo;
@@ -33,6 +39,10 @@ public class BlackJackActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_black_jack);
+		
+		
+		
+		
 		userInfo = (TextView)findViewById(R.id.userInfo);
 		context=this;
 		user = ParseUser.getCurrentUser();
@@ -131,13 +141,17 @@ public class BlackJackActivity extends Activity {
 		mGameView.endRound(currentDeck);
 		if(mGameView.getDealer().getValue()>21){
 			text.setText("Dealer busts");
+			mGameView.roundResults(WIN,currentBet);
 			increaseMoney();
 		}else if(mGameView.getDealer().getValue()>mGameView.getPlayer().getValue()){
 			text.setText("Dealer wins");
+			mGameView.roundResults(LOSE,currentBet);
 			decreaseMoney();
 		}else if(mGameView.getDealer().getValue()==mGameView.getPlayer().getValue()){
+			mGameView.roundResults(PUSH,currentBet);
 			text.setText("Push");
 		}else{
+			mGameView.roundResults(WIN,currentBet);
 			text.setText("Player wins");
 			increaseMoney();
 		}
@@ -146,6 +160,7 @@ public class BlackJackActivity extends Activity {
 		deal.setEnabled(true);
 		bet.setEnabled(true);
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

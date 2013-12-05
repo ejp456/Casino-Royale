@@ -9,7 +9,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -17,9 +19,18 @@ public class GameView extends View {
 	Bitmap card;
 	boolean startgame = false;
 	boolean hit = false;
+	int endgameCode=0;
+	final int WIN = 1;
+	final int LOSE = 2;
+	final int PUSH = 3;
+	int resultText=0;
+	private static final int FADE_MILLISECONDS = 3000; // 3 second fade effect
+	private static final int FADE_STEP = 120;  
+	// Calculate our alpha step from our fade parameters
+	private static final int ALPHA_STEP = 255 / (FADE_MILLISECONDS / FADE_STEP);
 	Canvas canvas;
 	int count = 1;
-	
+	boolean endgame = false;
 	Player player;
 	Player dealer;
 	//getResources().getIdentifier("resname", "restype", com.example.whatever);//
@@ -69,7 +80,17 @@ public class GameView extends View {
     }
 	public void endRound(Deck currentDeck){
 		DealerPlay(currentDeck);
+		
+		
 		invalidate();
+	  
+		
+		
+	}
+	public void roundResults(int gameend, int result){
+		endgameCode = gameend;
+		resultText = result;
+	    endgame = true;
 	}
 	public void hitPressed(Deck currentDeck){
 		Card c = currentDeck.Draw();
@@ -81,8 +102,29 @@ public class GameView extends View {
 		 float playercards = 0;
 		 float dealercards = 0;
 		 super.onDraw(canvas);
+		 
 		 Paint mBmpPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		 Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.cl1);
+		  if(endgame){
+			  Paint paint = new Paint(); 
+			  paint.setColor(Color.WHITE); 
+			  paint.setStyle(Style.FILL); 
+			  if(endgameCode==WIN){
+				  paint.setColor(Color.GREEN); 
+				  paint.setTextSize(60); 
+				  canvas.drawText("$"+resultText, canvas.getWidth()/2, canvas.getHeight()/2, paint); 			  
+			  }else if(endgameCode==LOSE){
+				  paint.setColor(Color.RED); 
+				  paint.setTextSize(60); 
+				  canvas.drawText("-$"+resultText, canvas.getWidth()/2, canvas.getHeight()/2, paint);
+			  }else if(endgameCode==PUSH){
+				  paint.setColor(Color.BLUE); 
+				  paint.setTextSize(60); 
+				  canvas.drawText("PUSH", canvas.getWidth()/2, canvas.getHeight()/2, paint);
+			  }
+			  endgame=false;
+			  postInvalidateDelayed(1000);
+		    }
 		 if(startgame){
 			 for(int i=0;i<dealer.getHand().getCards().size();i++){
 				 Bitmap dealerCard = BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(loadCard(dealer.getHand().getCards().get(i)), "drawable", BlackJackActivity.PACKAGE_NAME));
@@ -94,6 +136,7 @@ public class GameView extends View {
 				 dealercards+=dealerCard.getWidth()/2;
 			     
 			 }
+	  
 			 for(int i=0;i<player.getHand().getCards().size();i++){
 				 Bitmap playerCard = BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(loadCard(player.getHand().getCards().get(i)), "drawable", BlackJackActivity.PACKAGE_NAME)); 
 				
