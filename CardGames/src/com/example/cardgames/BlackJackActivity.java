@@ -2,6 +2,7 @@ package com.example.cardgames;
 
 
 import com.gamefiles.Deck;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import android.os.Bundle;
@@ -206,5 +207,19 @@ public class BlackJackActivity extends Activity {
 		});
 		dialog.show();
 	}
+
+    @Override
+    public void onStop(){
+        //save score to parse...
+        user = ParseUser.getCurrentUser();
+        user.getUsername();
+       
+        ParseObject gameScore = new ParseObject("GameScore");
+        gameScore.put("score", BankAccount.getInstanceOf().getBalanace());
+        gameScore.put("playerName", user.getUsername());
+        gameScore.saveInBackground();
+       
+        super.onStop();
+    }
 	
 }
