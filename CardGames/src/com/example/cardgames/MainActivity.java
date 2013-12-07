@@ -37,9 +37,9 @@ public class MainActivity extends Activity {
 		password = (EditText) findViewById(R.id.password);
 		System.out.println(username.getText().toString());
 		//the arguments here are used to identify this app with the Parse service
-		Parse.initialize(this, "rcoJm1GGgUI9wgN19GDGBk8qgbsHD3buV3MiquBp", "lUYmJQ1pQS3MrOMTrmycEKS8jRCg0Vzd45HYxLJz"); 
+		Parse.initialize(this, "Insert Parse Key Here", "Insert Parse Key here"); 
 		
-		//User user = new User("e456","IamHere","skater85234@hotmail.com");
+		
 		//context = this;
 		//user.signUp(); //method can be used to create a username and password on Parse
 		loginbutton = (Button) findViewById(R.id.stayButton);
